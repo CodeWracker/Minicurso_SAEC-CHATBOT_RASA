@@ -1,0 +1,7 @@
+tasks:
+  - command: pipenv --rm ; pipenv install ; pipenv shell
+ports:
+  - port: 5005
+    visibility: public
+  - port: 5055
+    visibility: public
