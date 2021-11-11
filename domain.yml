@@ -1,0 +1,54 @@
+version: "2.0"
+
+intents:
+  - greet
+  - about_the_project
+  - delete_case
+  - inform
+
+actions:
+  - utter_greet
+  - utter_search_cases
+  - utter_about_the_project
+  - utter_ask_ong_id
+  - action_delete_case_selection
+
+entities:
+  - ong_id
+  - case_id
+
+slots:
+  ong_id:
+    type: text
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  case_id:
+    type: text
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+forms:
+  delete_case_form:
+    required_slots:
+      ong_id:
+        - type: from_text
+
+responses:
+  utter_greet:
+  - text: "Oi, como vai?"
+  - text: "eae"
+  utter_ask_ong_id:
+  - text: "Me diga seu id"
+
+  utter_about_the_project:
+  - text: "O be the hero serve para poder ajudar ONGs a encontrarem pessoas dispostas a ajudá-las em seus projetos. Você pode criar uma ong no site web e criar casos ou pode ajudar nos casos entrando no celular e buscando o que prefere! Aqui está o QR code:"
+    image: "https://raw.githubusercontent.com/Liga-IA/Chatbot-LIA-SAEC/main/qrcode_4292678_.png"
+  utter_search_cases:
+    - text: OK Verificando os casos da ong com id {ong_id}
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

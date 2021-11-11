@@ -1,0 +1,55 @@
+version: "2.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - oi
+      - ei, pode me ajudar?
+      - pode me ajudar?
+      - tem alguém ai?
+      - preciso de ajuda
+      - hi
+      - hello
+      - eae
+      - salve!
+      - bom dia
+      - boa tarde
+      - boa noite
+      - ola
+  - intent: about_the_project
+    examples: |
+      - o que é o be the hero?
+      - o que vcs fazem nessa empresa?
+      - sobre o que se trata esse projeto??
+
+  - intent: delete_case
+    examples: |
+      - quero deletar um dos meus casos
+      - me ajude a deletar uma das minhas ações
+      - quero excluir o meu caso
+      - deletar um caso
+      - excluir um caso
+      - excluir um projeto
+      - desejo remover um caso
+      - como faço pra extermiar um caso da minha ong?
+
+
+  - intent: inform
+    examples: |
+      - o id é [8f6a07bb](ong_id)
+      - id: [13bbaaff](ong_id)}
+      - id =  [cc318a9f](ong_id)
+      - id é [7019b3d3](ong_id)
+      - [a940454f](ong_id)
+      - a minha ong se chama [casa do pato manco](ong_name)
+      - nome seria [Liga de IA](ong_name)
+      - o nome é [APAE](ong_name)
+      - a que eu quero criar se chama [Esquadrão do falo médio](ong_name)
+      - os contatos são [11974820650](ong_whatsapp), [dev.rodrigofs@gmail.com](ong_email)
+      - o whats é [11997039279](ong_whatsapp) e o email é [eng.silviomartins@hotmail.com](ong_email)
+      - o email é [jonas@hotmail.com](ong_email) e o whjatsapp é [54991919191](ong_whatsapp)
+      - a ong fica em [mogi das cruzes](ong_city), [SP](ong_uf)
+      - a ong fica em [Passo Fundo](ong_city), [RS](ong_uf)
+      - a ong fica em [ararangua](ong_city), [SC](ong_uf)
+      - o estado é [MG](ong_uf) e a city é [bh](ong_city)
+      - cidade: "[palmas](ong_city)" e Estado: "[TO](ong_uf)"

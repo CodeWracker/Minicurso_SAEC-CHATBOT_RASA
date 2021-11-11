@@ -1,0 +1,20 @@
+version: "2.0"
+
+rules:
+
+- rule: Activate delete case form
+  steps:
+  - intent: delete_case
+  - action: delete_case_form
+  - active_loop: delete_case_form
+
+- rule: Submit delete case form
+  condition:
+  - active_loop: delete_case_form
+  steps:
+  - action: delete_case_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_search_cases
+  - action: action_delete_case_selection

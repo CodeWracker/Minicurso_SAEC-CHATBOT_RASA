@@ -1,0 +1,18 @@
+version: "2.0"
+
+stories:
+
+  - story: about path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: about_the_project
+      - action: utter_about_the_project
+
+  - story: delete only path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: delete_case
+      - action: delete_case_form
+      - active_loop: delete_case_form
