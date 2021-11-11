@@ -5,6 +5,8 @@ intents:
   - about_the_project
   - delete_case
   - inform
+  - delete_specific_case
+  - cancel_operation
 
 actions:
   - utter_greet
@@ -12,6 +14,7 @@ actions:
   - utter_about_the_project
   - utter_ask_ong_id
   - action_delete_case_selection
+  - action_delete_case_by_id
 
 entities:
   - ong_id

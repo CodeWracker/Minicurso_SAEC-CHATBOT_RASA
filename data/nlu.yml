@@ -53,3 +53,8 @@ nlu:
       - a ong fica em [ararangua](ong_city), [SC](ong_uf)
       - o estado é [MG](ong_uf) e a city é [bh](ong_city)
       - cidade: "[palmas](ong_city)" e Estado: "[TO](ong_uf)"
+
+  - intent: delete_specific_case
+    examples: |
+      - delete o caso [1](case_id) 
+      - deleta o caso especifico aqui: [3](case_id)

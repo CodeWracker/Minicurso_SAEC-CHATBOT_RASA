@@ -18,3 +18,13 @@ rules:
     - requested_slot: null
   - action: utter_search_cases
   - action: action_delete_case_selection
+
+- rule: deletar caso especifico
+  steps:
+  - intent: delete_specific_case
+  - action: action_delete_case_by_id
+
+- rule: Cancelar operação
+  steps:
+  - intent: cancel_operation
+  - action: utter_cancel_operation

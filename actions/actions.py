@@ -8,10 +8,11 @@ API_PATH = "https://3333-plum-egret-wx8hj8rw.ws-us18.gitpod.io"
 
 # This is a simple example for a custom action which utters "Hello World!"
 
-    from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List
 #
-    from rasa_sdk import Action, Tracker
-    from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+import requests
 #
 #
 class ActionExclusionSelect(Action):
@@ -47,4 +48,36 @@ class ActionExclusionSelect(Action):
             dispatcher.utter_message(text="Escolha qual caso quer excluir", buttons=btns)
         else:
             dispatcher.utter_message(text ="Id não informado, ou está incorreto")
+        return []
+
+class ActionDeleteCaseById(Action):
+
+    def name(self) -> Text:
+        return "action_delete_case_by_id"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        
+
+        id = str(tracker.get_slot('case_id'))
+        ong_id = str(tracker.get_slot('ong_id'))
+        print("Deletando caso..." + id)
+        
+        if(id and id != "" and id != "None"):
+            print("chamando a api em: ",API_PATH+ '/incidents/'+str(id),{"authorization":str(ong_id)})
+            r = requests.delete(API_PATH+ '/incidents/'+str(id),headers= {"authorization":str(ong_id)}) 
+            if(int(r.status_code)==404):
+                dispatcher.utter_message(text ="Caso não encontrado")
+                return
+            if(int(r.status_code)==500 or int(r.status_code)==401 ):
+                dispatcher.utter_message(text ="Pera que eu fiquei confuso.... deu um errinho aqui kk vamos de novo!")
+                return
+            
+            
+            dispatcher.utter_message(text ="Deletado!")
+        else:
+            dispatcher.utter_message(text ="Id não informado, ou está incorreto")
+
         return []
